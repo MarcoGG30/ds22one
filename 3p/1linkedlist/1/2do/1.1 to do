@@ -1,0 +1,36 @@
+	function Node(data) {//constructor
+     this.data = data
+     this.siguiente = null
+  }
+  
+  let n1 = new Node(3)
+  let n2 = new Node(6)
+  let n3 = new Node(9)
+
+  n1.siguiente=n2
+  n2.siguiente=n3
+  
+ function contains(a,b){
+   let temp;
+   let c=a;
+   
+    while(c){
+     if(c.data == b){
+       temp = "true"
+       c = null
+     }
+     else{
+         c = c.next
+      }
+    }
+    
+    if(temp=="true"){
+      console.log(true)
+    }
+    else{
+      console.log(false)
+    }
+  }
+  
+  contains(n1,0)
+ 
