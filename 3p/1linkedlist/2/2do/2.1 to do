@@ -1,0 +1,20 @@
+function Node(num) {
+     this.numero = num
+     this.siguiente = null
+  }
+  
+  
+   let a=new Node(0)
+   let b=new Node(1)
+   a.siguiente=b
+  	
+  
+  for (let i=0;i<100;i++){
+    	let numran = Math.floor(Math.random() * 1000 + 1);
+      let c = new Node("name " + numran)
+      b.siguiente = c
+      b=c
+    	
+  }
+	
+	console.log(a)
