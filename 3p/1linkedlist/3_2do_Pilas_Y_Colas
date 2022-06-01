@@ -1,0 +1,163 @@
+ /** INSTRUCTIONS
+ * PROBLEM 1
+ * linked-list (stack/queue) implementation exercise
+ * 
+ */
+function Node(a) {
+  this.a = a
+  this.sig = null
+}
+ 
+   
+function Linked(n) {
+   this.head = n;
+   this.tail = n;
+   this.size = 1;
+   this.getHead = getHead;
+   this.prepend = prepend;
+   this.append = append;
+   this.traverse = traverse;
+}
+
+function getHead(){return console.log(this.head)}
+
+function prepend(n){
+   n.sig = this.head;
+   this.head=n;
+   this.size++;
+}
+
+function append(n){
+   n.sig = null;
+   this.tail.sig=n;
+   this.tail=n;
+   this.size++;
+}
+
+function traverse(){
+   let mar=this.head;
+   while(mar){
+ console.log(mar.a);
+ mar=mar.sig;
+   }
+   console.log('\n');
+}
+
+
+ function Queue(n) {
+ 
+   this.linked = new Linked(n)    
+   this.enqueue = enqueue;
+   this.dequeue = dequeue;
+   this.back = back;
+   this.toString = toString;
+   this.empty = empty;
+}
+function enqueue(n){
+ this.linked.append(n);
+ return console.log(n.a + ' ha sido agregado de manera exitosa');
+}
+function dequeue(n){
+   let temp = this.linked.head;
+   let anterior = null;
+   
+   if(temp.a == n){
+     this.linked.head = temp.sig;
+     return console.log( n + ' ha sido extraido de manera exitosa');
+   }
+   else{
+   while(temp != null){
+     if(temp.a == n){
+       anterior.sig = temp.sig;
+       return console.log(n + " Extraido con exito");
+     }
+     anterior = temp;
+      temp = temp.sig;
+   }
+  }
+ }
+ function font(){
+   return console.log("Front: " + this.linked.head.a);
+ }
+ function  back(){
+   return console.log("Back: " + this.linked.tail.a);
+ }
+ function toString(){
+   let temp = this.linked.head;
+   while(temp){
+     console.log(temp.a);
+     temp = temp.sig;
+   }
+     console.log('\n')
+ }
+ function empty(){
+   if(this.linked.head){
+     return console.log("esta cola no esta vacia");
+   }
+   else{
+     return console.log("esta cola no esta vacia");
+   }
+ }
+ function Stack(n) {
+   //props
+   this.linked = new Linked(n);  
+   //methods
+   this.push = push;
+   this.pop = pop;
+   this.peek = peek;
+}
+ function  push(n){
+   this.linked.prepend(n);
+   return console.log(n.a + ' ha sido agregado de manera exitosa');
+ }
+ function pop(n){
+       let temp = this.linked.head;
+   let anterior = null;
+   
+   if(temp.a == n){
+     this.linked.head = temp.sig;
+     return console.log( n + ' ha sido extraido de manera exitosa');
+   }
+   else{
+   while(temp != null){
+     if(temp.a == n){
+       anterior.sig = temp.sig;
+       return console.log(n + " ha sido extraido de manera exitosa");
+     }
+     anterior = temp;
+      temp = temp.sig;
+   }
+  }
+ }
+ 
+ function peek(){
+   stack.linked.traverse();
+ }
+ 
+ let n1= new Node(10);
+ let n2 = new Node(20);
+ let n3 = new Node(30);
+ let n4 = new Node(40);
+ let n5 = new Node(50);
+ let n6 = new Node(60);
+ 
+ 
+ let queue = new Queue(n1);
+ console.log("Cola");
+ queue.enqueue(n2);
+ queue.enqueue(n3);
+ queue.toString();
+ queue.dequeue(20);
+ queue.toString();
+ queue.empty();
+ queue.back();
+ console.log('\n')
+
+ 
+ let stack = new Stack(n4);
+ console.log("Pila");
+ stack.push(n5);
+ stack.push(n6);
+ stack.peek();
+ stack.pop(60);
+ stack.peek();
