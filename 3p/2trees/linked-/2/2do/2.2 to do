@@ -1,0 +1,33 @@
+function Node(e){
+      this.a=e
+      this.b=null
+      this.c=null
+  }
+  
+  function inorder(n){
+    if (n!==null){
+      inorder(n.b)
+      console.log(n.a)
+      inorder(n.c)
+    }
+	}
+  
+  function postorder(n){
+    if (n!==null){
+      postorder(n.b)
+      postorder(n.c)
+      console.log(n.a)
+    }
+	}
+  
+  let c = new Node('A')
+  let y = new Node('B')
+  let z = new Node('C')
+  
+  c.b = y
+  c.c = z
+  
+  console.log('Inorden')
+  inorder(c)
+  console.log('Postorden')
+  postorder(c)
